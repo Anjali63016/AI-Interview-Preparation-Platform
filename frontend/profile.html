@@ -1,0 +1,192 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | AI Interview</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+<div class="dashboard">
+
+    <aside class="sidebar">
+        <h2>🤖 AI Interview</h2>
+        <ul>
+            <li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+            <li><a href="resume.html"><i class="fa-solid fa-file"></i> Resume Analyzer</a></li>
+            <li><a href="interview.html"><i class="fa-solid fa-microphone"></i> AI Interview</a></li>
+            <li><a href="coding.html"><i class="fa-solid fa-code"></i> Coding Challenge</a></li>
+            <li><a href="performance.html"><i class="fa-solid fa-chart-line"></i> Performance</a></li>
+            <li><a href="myapplications.html"><i class="fa-solid fa-folder-open"></i> My Applications</a></li>
+            <li><a href="jobs.html"><i class="fa-solid fa-briefcase"></i> Jobs</a></li>
+            <li><a href="profile.html" class="active"><i class="fa-solid fa-user"></i> Profile</a></li>
+            <li><a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+        </ul>
+    </aside>
+
+    <main class="content profile-content">
+
+        <header class="profile-header">
+            <div>
+                <span class="eyebrow">YOUR PERSONAL SPACE</span>
+                <h1><i class="fa-solid fa-user-astronaut"></i> My Profile</h1>
+                <p>Manage your personal information and achievements.</p>
+            </div>
+            <div class="header-icon">
+                <i class="fa-solid fa-id-card"></i>
+            </div>
+        </header>
+
+        <section class="profile-hero">
+
+            <div class="profile-avatar">
+    <img id="profilePreview" src="assets/images/profile.png"
+         alt="Profile picture"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+    <div class="avatar-fallback">
+        <i class="fa-solid fa-user"></i>
+    </div>
+</div>
+
+<label for="profilePicture" class="photo-upload">
+    <i class="fa-solid fa-camera"></i> Change Photo
+</label>
+
+<input type="file" id="profilePicture" accept="image/*" hidden>
+            
+
+            <div class="hero-info">
+                <span class="eyebrow">PROFILE OVERVIEW</span>
+                <h2 id="displayName">Welcome!</h2>
+                <p id="displayEmail">Your account information</p>
+                <span class="role-badge">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span id="displayRole">Student</span>
+                </span>
+            </div>
+
+            <div class="hero-decoration">
+                <i class="fa-solid fa-sparkles"></i>
+            </div>
+        </section>
+
+        <section class="profile-grid">
+
+            <div class="profile-panel personal-panel">
+                <div class="panel-heading">
+                    <div class="heading-icon">
+                        <i class="fa-solid fa-user-pen"></i>
+                    </div>
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p>Keep your details up to date</p>
+                    </div>
+                </div>
+
+                <div class="profile-form">
+
+                    <div class="form-group">
+                        <label for="full_name">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="full_name" placeholder="Enter your full name">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input type="email" id="email" placeholder="Enter your email">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-phone"></i>
+                            <input type="text" id="phone" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Account Role</label>
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <input type="text" id="role" readonly>
+                        </div>
+                    </div>
+
+                    <button id="updateBtn" class="update-button">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Update Profile
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="profile-side">
+
+                <div class="profile-panel account-panel">
+                    <div class="panel-heading">
+                        <div class="heading-icon purple">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <div>
+                            <h2>Account Created</h2>
+                            <p>Your membership details</p>
+                        </div>
+                    </div>
+
+                    <div class="account-value">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <p id="created_at">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="profile-panel role-panel">
+                    <div class="panel-heading">
+                        <div class="heading-icon green">
+                            <i class="fa-solid fa-user-check"></i>
+                        </div>
+                        <div>
+                            <h2>Account Status</h2>
+                            <p>Your platform role</p>
+                        </div>
+                    </div>
+
+                    <div class="account-value">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <p id="roleCard">Loading...</p>
+                    </div>
+                </div>
+
+                <div class="profile-tip">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <div>
+                        <h3>Profile Tip</h3>
+                        <p>Keep your contact information updated so your account details stay accurate.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<script src="js/profile.js"></script>
+</body>
+</html>

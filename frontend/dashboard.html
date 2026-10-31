@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Interview Dashboard</title>
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>🤖 AI Interview</h2>
+
+        <ul>
+
+<li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+
+<li><a href="resume.html"><i class="fa-solid fa-file"></i> Resume Analyzer</a></li>
+
+<li><a href="interview.html"><i class="fa-solid fa-microphone"></i> AI Interview</a></li>
+
+<li><a href="myapplications.html"><i class="fa-solid fa-folder-open"></i> My Applications</a></li>
+<li><a href="coding.html">
+<i class="fa-solid fa-code"></i>
+Coding Challenge
+</a></li>
+
+<li><a href="codinghub.html">
+<i class="fa-solid fa-laptop-code"></i>
+Coding Hub
+</a></li>
+
+<li><a href="performance.html"><i class="fa-solid fa-chart-line"></i> Performance</a></li>
+
+<li><a href="jobs.html"><i class="fa-solid fa-briefcase"></i> Jobs</a></li>
+
+<li><a href="profile.html"><i class="fa-solid fa-user"></i> Profile</a></li>
+
+<li><a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a></li>
+
+<li><a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+
+        </ul>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="content">
+
+        <!-- Header -->
+
+        <header>
+
+            <div>
+                <h1>Welcome Back 👋</h1>
+                <p>Ready to crack your dream job today?</p>
+            </div>
+
+            <input type="search" placeholder="Search...">
+
+        </header>
+
+        <!-- Statistics Cards -->
+
+    
+<section class="cards">
+
+    <div class="card">
+        <h2 id="jobsApplied">0</h2>
+        <p>Jobs Applied</p>
+    </div>
+
+    <div class="card">
+        <h2 id="interviews">0</h2>
+        <p>AI Interviews</p>
+    </div>
+
+    <div class="card">
+        <h2 id="averageScore">0%</h2>
+        <p>Average Interview Score</p>
+    </div>
+
+    <div class="card">
+        <h2 id="codingSolved">0</h2>
+        <p>Coding Challenges Solved</p>
+    </div>
+
+</section>
+
+
+        <!-- Chart + Activity -->
+
+        <section class="dashboard-grid">
+
+            <div class="chart-card">
+
+                <h2>Weekly Progress</h2>
+
+                <canvas id="progressChart"></canvas>
+
+            </div>
+
+            <div class="activity-card">
+
+                <h2>Recent Activity</h2>
+
+                <ul>
+
+                    <li>✅ Completed Java Interview</li>
+
+                    <li>📄 Resume ATS Score Updated</li>
+
+                    <li>💻 Solved Array Coding Challenge</li>
+
+                    <li>🤖 AI Feedback Generated</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- Bottom Grid -->
+
+        <section class="bottom-grid">
+
+            <!-- Quick Actions -->
+
+            <div class="quick-actions">
+
+                <h2>Quick Actions</h2>
+
+                <div class="action-buttons">
+
+                    <button>
+                        <i class="fa-solid fa-microphone"></i>
+                        Start AI Interview
+                    </button>
+
+                    <button>
+                        <i class="fa-solid fa-file-arrow-up"></i>
+                        Upload Resume
+                    </button>
+
+                    <button>
+                        <i class="fa-solid fa-code"></i>
+                        Coding Challenge
+                    </button>
+
+                    <button>
+                        <i class="fa-solid fa-chart-column"></i>
+                        View Performance
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- AI Suggestions -->
+
+            <div class="ai-suggestions">
+
+                <h2>AI Suggestions</h2>
+
+                <div class="suggestion">
+                    💡 Improve your communication skills by completing one HR mock interview today.
+                </div>
+
+                <div class="suggestion">
+                    📄 Your resume is missing Java and SQL keywords.
+                </div>
+
+                <div class="suggestion">
+                    💻 Practice Arrays and Dynamic Programming to improve your coding skills.
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- Chart.js -->
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Dashboard JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

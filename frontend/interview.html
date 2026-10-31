@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Mock Interview</title>
+
+    <link rel="stylesheet" href="css/interview.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="interview-container">
+
+        <h1>🎤 AI Mock Interview</h1>
+
+        <p class="subtitle">
+            Practice real interview questions and improve your performance.
+        </p>
+
+        <!-- START SCREEN -->
+
+        <div id="startScreen" class="card">
+
+            <h2>Start Your Interview</h2>
+
+            <label>Choose Job Role</label>
+
+            <select id="role">
+
+                <option value="Java Developer">
+                    Java Developer
+                </option>
+
+                <option value="Python Developer">
+                    Python Developer
+                </option>
+
+                <option value="Full Stack Developer">
+                    Full Stack Developer
+                </option>
+
+                <option value="Data Analyst">
+                    Data Analyst
+                </option>
+
+            </select>
+
+            <label>Difficulty</label>
+
+            <select id="difficulty">
+
+                <option value="Easy">Easy</option>
+
+                <option value="Medium" selected>
+                    Medium
+                </option>
+
+                <option value="Hard">Hard</option>
+
+            </select>
+
+            <button id="startBtn">
+                Start Interview 🚀
+            </button>
+
+            <p id="startStatus"></p>
+
+        </div>
+
+
+        <!-- INTERVIEW SCREEN -->
+
+        <div id="interviewScreen" class="card hidden">
+
+            <div class="progress">
+
+                Question
+                <span id="questionNumber">1</span>
+                /
+                <span id="totalQuestions">5</span>
+
+            </div>
+
+            <h2 id="question">
+                Question will appear here
+            </h2>
+
+            <textarea
+                id="answer"
+                placeholder="Type your answer here..."
+            ></textarea>
+
+            <button id="submitAnswerBtn">
+                Submit Answer
+            </button>
+
+            <p id="answerStatus"></p>
+
+        </div>
+
+
+        <!-- RESULT SCREEN -->
+
+        <div id="resultScreen" class="card hidden">
+
+            <h2>🎉 Interview Completed!</h2>
+
+            <div class="score-box">
+
+                <span>Overall Score</span>
+
+                <strong id="overallScore">
+                    0/10
+                </strong>
+
+            </div>
+
+            <h3>Performance Summary</h3>
+
+            <p id="summary"></p>
+
+            <h3>💪 Strengths</h3>
+
+            <ul id="strengths"></ul>
+
+            <h3>📈 Areas to Improve</h3>
+
+            <ul id="improvements"></ul>
+
+            <button onclick="location.reload()">
+                Start New Interview
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/interview.js"></script>
+
+</body>
+
+</html>

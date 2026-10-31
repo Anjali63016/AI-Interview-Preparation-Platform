@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loading</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:#0F172A;
+overflow:hidden;
+}
+
+.loader{
+text-align:center;
+}
+
+.loader h1{
+color:#38BDF8;
+margin-top:20px;
+font-size:40px;
+}
+
+.circle{
+width:80px;
+height:80px;
+border:8px solid rgba(255,255,255,.15);
+border-top:8px solid #38BDF8;
+border-radius:50%;
+animation:spin 1s linear infinite;
+margin:auto;
+}
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+p{
+margin-top:15px;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="loader">
+
+<div class="circle"></div>
+
+<h1>AI Interview</h1>
+
+<p>Preparing your dashboard...</p>
+
+</div>
+
+<script>
+
+setTimeout(()=>{
+
+window.location.href="index.html";
+
+},2500);
+
+</script>
+
+</body>
+</html>

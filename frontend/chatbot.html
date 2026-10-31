@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Career Assistant</title>
+
+<link rel="stylesheet" href="css/dashboard.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<aside class="sidebar">
+
+<h2>🤖 AI Interview</h2>
+
+<ul>
+
+<li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+
+<li><a href="resume.html"><i class="fa-solid fa-file"></i> Resume Analyzer</a></li>
+
+<li><a href="interview.html"><i class="fa-solid fa-microphone"></i> AI Interview</a></li>
+
+<li><a href="coding.html"><i class="fa-solid fa-code"></i> Coding Challenge</a></li>
+
+<li><a href="jobs.html"><i class="fa-solid fa-briefcase"></i> Jobs</a></li>
+
+<li><a href="chatbot.html"><i class="fa-solid fa-robot"></i> AI Assistant</a></li>
+
+</ul>
+
+</aside>
+
+<main class="content">
+
+<h1>🤖 AI Career Assistant</h1>
+
+<div id="chatBox"
+style="
+height:500px;
+overflow-y:auto;
+background:#fff;
+padding:20px;
+border-radius:12px;
+margin-top:20px;
+"></div>
+
+<div style="display:flex;margin-top:20px;gap:10px;">
+
+<input
+id="message"
+type="text"
+placeholder="Ask anything..."
+style="
+flex:1;
+padding:15px;
+border-radius:10px;
+border:1px solid #ccc;
+">
+
+<button id="sendBtn">
+
+Send
+
+</button>
+
+</div>
+
+</main>
+
+</div>
+
+<script src="js/chatbot.js"></script>
+
+</body>
+
+</html>

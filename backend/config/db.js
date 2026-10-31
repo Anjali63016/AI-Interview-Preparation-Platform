@@ -1,0 +1,20 @@
+const mysql = require("mysql2");
+
+const db = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: process.env.DB_PASSWORD,
+    database: "ai_interview_db",
+    port: 3307
+});
+
+db.connect((err) => {
+    if (err) {
+        console.error("❌ Database Connection Failed:", err);
+        return;
+    }
+
+    console.log("✅ MySQL Connected Successfully");
+});
+
+module.exports = db;
