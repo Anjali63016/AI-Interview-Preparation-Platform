@@ -1,5 +1,5 @@
 
-const API_URL = "http://localhost:5000/api/coding";
+const API_URL = "https://ai-interview-preparation-platform-sojn.onrender.com/api/coding";
 
 async function loadCodingQuestions() {
     const container = document.getElementById("codingQuestions");
