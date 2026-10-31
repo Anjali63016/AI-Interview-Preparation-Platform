@@ -1,120 +1,111 @@
+const API_URL = "https://ai-interview-preparation-platform-sojn.onrender.com/api/jobs";
+
 let allJobs = [];
 
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("searchJob");
+
+    if (searchInput) {
+        searchInput.addEventListener("input", function () {
+            const keyword = this.value.toLowerCase().trim();
+
+            const filteredJobs = allJobs.filter(job =>
+                (job.job_role || "").toLowerCase().includes(keyword) ||
+                (job.company_name || "").toLowerCase().includes(keyword)
+            );
+
+            displayJobs(filteredJobs);
+        });
+    }
+
+    loadJobs();
+});
+
 async function loadJobs() {
+    const container = document.getElementById("jobsContainer");
+
+    if (!container) {
+        console.error("jobsContainer not found.");
+        return;
+    }
+
+    container.innerHTML = "<p>Loading jobs...</p>";
 
     try {
+        const response = await fetch(API_URL);
 
-        const response = await fetch("http://localhost:5000/api/jobs");
+        if (!response.ok) {
+            throw new Error("Unable to fetch jobs. Status: " + response.status);
+        }
 
-        allJobs = await response.json();
+        const data = await response.json();
+
+        allJobs = Array.isArray(data) ? data : [];
 
         displayJobs(allJobs);
 
-    } catch (err) {
+    } catch (error) {
+        console.error("Jobs loading error:", error);
 
-        console.log(err);
-
+        container.innerHTML = `
+            <div class="card">
+                <h2>Unable to Load Jobs</h2>
+                <p>Please try again later.</p>
+                <button onclick="loadJobs()">Try Again</button>
+            </div>
+        `;
     }
-
 }
 
 function displayJobs(jobs) {
-
     const container = document.getElementById("jobsContainer");
+
+    if (!container) return;
 
     container.innerHTML = "";
 
     if (jobs.length === 0) {
-
         container.innerHTML = `
             <div class="card">
                 <h2>No Jobs Found</h2>
+                <p>No jobs are currently available.</p>
             </div>
         `;
-
         return;
-
     }
 
     jobs.forEach(job => {
+        const card = document.createElement("div");
+        card.className = "card";
 
-        container.innerHTML += `
+        const title = document.createElement("h2");
+        title.textContent = job.job_role || "Job Role Not Available";
 
-        <div class="card">
+        const company = document.createElement("p");
+        company.textContent = "🏢 Company: " + (job.company_name || "Not specified");
 
-            <h2>${job.job_role}</h2>
+        const location = document.createElement("p");
+        location.textContent = "📍 Location: " + (job.location || "Not specified");
 
-            <p><strong>🏢 Company:</strong> ${job.company_name}</p>
+        const experience = document.createElement("p");
+        experience.textContent = "💼 Experience: " + (job.experience_required || "Not specified");
 
-            <p><strong>📍 Location:</strong> ${job.location}</p>
+        const salary = document.createElement("p");
+        salary.textContent = "💰 Salary: " + (job.salary || "Not specified");
 
-            <p><strong>💼 Experience:</strong> ${job.experience_required}</p>
+        const button = document.createElement("button");
+        button.textContent = "Apply Now";
 
-            <p><strong>💰 Salary:</strong> ${job.salary}</p>
-
-            <button onclick="applyJob(${job.id}, '${job.apply_link}')">
-                Apply Now
-            </button>
-
-        </div>
-
-        `;
-
-    });
-
-}
-
-document.getElementById("searchJob").addEventListener("keyup", function () {
-
-    const keyword = this.value.toLowerCase();
-
-    const filtered = allJobs.filter(job =>
-
-        job.job_role.toLowerCase().includes(keyword) ||
-
-        job.company_name.toLowerCase().includes(keyword)
-
-    );
-
-    displayJobs(filtered);
-
-});
-
-async function applyJob(jobId, applyLink) {
-
-    try {
-
-        const response = await fetch("http://localhost:5000/api/applications", {
-
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json"
-            },
-
-            body: JSON.stringify({
-                user_id: 1,
-                job_id: jobId
-            })
-
+        button.addEventListener("click", () => {
+            applyJob(job.id, job.apply_link);
         });
 
-        const data = await response.json();
-
-        alert(data.message);
-
-        if (applyLink) {
-            window.open(applyLink, "_blank");
-        }
-
-    } catch (err) {
-
-        console.log(err);
-
-        alert("Application Failed");
-
-    }
-
+        card.append(title, company, location, experience, salary, button);
+        container.appendChild(card);
+    });
 }
 
-loadJobs();
+async function applyJob(jobId, applyLink) {
+    alert("Please check the job application API configuration before submitting.");
+}
+
