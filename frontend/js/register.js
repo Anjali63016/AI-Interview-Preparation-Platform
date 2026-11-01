@@ -16,12 +16,22 @@ document.addEventListener("DOMContentLoaded", () => {
             password: document.getElementById("password").value
         };
 
+        if (!user.full_name || !user.email || !user.phone || !user.password) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
         try {
-            const response = await fetch("http://localhost:5000/api/auth/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(user)
-            });
+            const response = await fetch(
+                "https://ai-interview-preparation-platform-sojn.onrender.com/api/auth/register",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(user)
+                }
+            );
 
             const data = await response.json();
 
@@ -36,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         } catch (error) {
             console.error("Registration error:", error);
-            alert("Cannot connect to the backend. Check that the server is running.");
+            alert("Cannot connect to the backend. Please try again.");
         }
     });
 });
